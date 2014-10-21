@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  itinerario: 
+  type: 
+  title: MyString
+  content: MyText
+  fillColor: MyString
+  fillOpacity: 9.99
+  strokeColor: MyString
+  strokeOpacity: 9.99
+  strokeWeight: 1
+
+two:
+  itinerario: 
+  type: 
+  title: MyString
+  content: MyText
+  fillColor: MyString
+  fillOpacity: 9.99
+  strokeColor: MyString
+  strokeOpacity: 9.99
+  strokeWeight: 1

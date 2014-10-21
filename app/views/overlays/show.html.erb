@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Itinerario:</b>
+  <%= @overlay.itinerario %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @overlay.type %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @overlay.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @overlay.content %>
+</p>
+
+<p>
+  <b>Fillcolor:</b>
+  <%= @overlay.fillColor %>
+</p>
+
+<p>
+  <b>Fillopacity:</b>
+  <%= @overlay.fillOpacity %>
+</p>
+
+<p>
+  <b>Strokecolor:</b>
+  <%= @overlay.strokeColor %>
+</p>
+
+<p>
+  <b>Strokeopacity:</b>
+  <%= @overlay.strokeOpacity %>
+</p>
+
+<p>
+  <b>Strokeweight:</b>
+  <%= @overlay.strokeWeight %>
+</p>
+
+
+<%= link_to 'Edit', edit_overlay_path(@overlay) %> |
+<%= link_to 'Back', overlays_path %>

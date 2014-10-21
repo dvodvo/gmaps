@@ -1,0 +1,53 @@
+<%= form_for(@overlay) do |f| %>
+  <% if @overlay.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@overlay.errors.count, "error") %> prohibited this overlay from being saved:</h2>
+
+      <ul>
+      <% @overlay.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :itinerario %><br />
+    <%= f.text_field :itinerario %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br />
+    <%= f.text_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br />
+    <%= f.text_area :content %>
+  </div>
+  <div class="field">
+    <%= f.label :fillColor %><br />
+    <%= f.text_field :fillColor %>
+  </div>
+  <div class="field">
+    <%= f.label :fillOpacity %><br />
+    <%= f.text_field :fillOpacity %>
+  </div>
+  <div class="field">
+    <%= f.label :strokeColor %><br />
+    <%= f.text_field :strokeColor %>
+  </div>
+  <div class="field">
+    <%= f.label :strokeOpacity %><br />
+    <%= f.text_field :strokeOpacity %>
+  </div>
+  <div class="field">
+    <%= f.label :strokeWeight %><br />
+    <%= f.number_field :strokeWeight %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

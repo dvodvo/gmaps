@@ -1,0 +1,2 @@
+module StrutturasHelper
+end

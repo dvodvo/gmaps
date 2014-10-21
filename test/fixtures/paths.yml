@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  overlay: 
+  lat: MyString
+  lng: MyString
+
+two:
+  overlay: 
+  lat: MyString
+  lng: MyString

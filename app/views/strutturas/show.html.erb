@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @struttura.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @struttura.longitude %>
+</p>
+
+<p>
+  <b>Nome:</b>
+  <%= @struttura.nome %>
+</p>
+
+<p>
+  <b>Servizi:</b>
+  <%= @struttura.servizi %>
+</p>
+
+<p>
+  <b>Telefono:</b>
+  <%= @struttura.telefono %>
+</p>
+
+<p>
+  <b>Web:</b>
+  <%= @struttura.web %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @struttura.address %>
+</p>
+
+
+<%= link_to 'Edit', edit_struttura_path(@struttura) %> |
+<%= link_to 'Back', strutturas_path %>

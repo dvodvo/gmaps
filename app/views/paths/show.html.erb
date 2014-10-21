@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Overlay:</b>
+  <%= @path.overlay %>
+</p>
+
+<p>
+  <b>Lat:</b>
+  <%= @path.lat %>
+</p>
+
+<p>
+  <b>Lng:</b>
+  <%= @path.lng %>
+</p>
+
+
+<%= link_to 'Edit', edit_path_path(@path) %> |
+<%= link_to 'Back', paths_path %>

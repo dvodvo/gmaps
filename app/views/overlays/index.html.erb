@@ -1,0 +1,39 @@
+<h1>Listing overlays</h1>
+
+<table>
+  <tr>
+    <th>Itinerario</th>
+    <th>Type</th>
+    <th>Title</th>
+    <th>Content</th>
+    <th>Fillcolor</th>
+    <th>Fillopacity</th>
+    <th>Strokecolor</th>
+    <th>Strokeopacity</th>
+    <th>Strokeweight</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @overlays.each do |overlay| %>
+  <tr>
+    <td><%= overlay.itinerario %></td>
+    <td><%= overlay.type %></td>
+    <td><%= overlay.title %></td>
+    <td><%= overlay.content %></td>
+    <td><%= overlay.fillColor %></td>
+    <td><%= overlay.fillOpacity %></td>
+    <td><%= overlay.strokeColor %></td>
+    <td><%= overlay.strokeOpacity %></td>
+    <td><%= overlay.strokeWeight %></td>
+    <td><%= link_to 'Show', overlay %></td>
+    <td><%= link_to 'Edit', edit_overlay_path(overlay) %></td>
+    <td><%= link_to 'Destroy', overlay, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Overlay', new_overlay_path %>

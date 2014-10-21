@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app='myapp'>
+<head>
+  <title>Gmaps</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+  <%= javascript_include_tag "itinerarios" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+
+<br /><br />
+<%= link_to 'Structures', strutturas_path %>
+<%= link_to 'Itineraries', itinerarios_path %>
+<%= link_to 'Lonlats', lonlats_path %>
+
+
+</body>
+</html>

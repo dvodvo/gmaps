@@ -1,0 +1,85 @@
+<h3>Itinerary definition</h3>
+
+<div id="myMap" style="height:400px; width:90%;"></div>
+<input type="button" value="clear map" onclick="BlitzMap.deleteAll();" />
+<input type="button" value="Generate Map Text" onclick="BlitzMap.toJSONString()" />
+<input type="button" value="Create Map from JSON" onclick="BlitzMap.setMap( 'myMap', true, 'mapData' ); BlitzMap.init()" />
+<input type="button" value="Generate Definitive Map Text" onclick="BlitzMap.toJSONString2()" />
+<!--  This would be the nominal starting point
+{"zoom":7,"tilt":0,"mapTypeId":"hybrid","center":{"lat":41.877,"lng":12.480},"overlays":[{"type":"polygon","title":"","content":"","fillColor":"#000000","fillOpacity":0.3,"strokeColor":"#000000","strokeOpacity":0.9,"strokeWeight":3}]}</textarea>
+-->
+<!--  This would be an example, but also an output -->
+
+<textarea id="mapData" name="itinerario[map_from_json]" style="width:90%; height:100px">
+{"zoom":8,"tilt":0,"mapTypeId":"hybrid","center":{"lat":40.437932451597206,"lng":9.082478027343774},"overlays":[{"type":"polygon","title":"Le più belle strade ","content":"","fillColor":"#000000","fillOpacity":0.3,"strokeColor":"#000000","strokeOpacity":0.9,"strokeWeight":3,"paths":[[{"lat":"40.85755175501825","lng":"8.68194580078125"},{"lat":"40.921918153400185","lng":"8.37158203125"},{"lat":"41.07945464282617","lng":"8.1683349609375"},{"lat":"40.549391572632544","lng":"7.91839599609375"},{"lat":"40.32990040841309","lng":"8.074951171875"},{"lat":"40.2252338644797","lng":"8.525390625"},{"lat":"40.330005072961804","lng":"8.624267578125"},{"lat":"40.48894625649553","lng":"8.4814453125"},{"lat":"40.70583609726883","lng":"8.4539794921875"}]]}]}
+</textarea>
+<br />
+<input type="button" value="Generate KML" onclick="BlitzMap.toKML()" /><input type="button" value="parse KML to map" onclick="BlitzMap.setMapFromKML(document.getElementById('kmlString').value)" />
+<textarea id="kmlString" style="width:90%; height:200px"></textarea>
+<script type="text/javascript">
+      // If there are any parameters at eh end of the URL, they will be in  location.search
+      // looking something like  "?marker=3"
+ 
+      // skip the first character, we are not interested in the "?"
+      var query = location.search.substring(1);
+ 
+      // split the rest at each "&" character to give a list of  "argname=value"  pairs
+      var pairs = query.split("&");
+      for (var i=0; i<pairs.length; i++) {
+        // break each pair at the first "=" to obtain the argname and value
+	var pos = pairs[i].indexOf("=");
+	var argname = pairs[i].substring(0,pos).toLowerCase();
+	var value = pairs[i].substring(pos+1);
+ 
+        // process each possible argname  -  use unescape() if theres any chance of spaces
+        if (argname == "encoded") {document.getElementById('encodedData').innerHTML = unescape(value);}
+        if (argname == "kml") {document.getElementById('kmlString').innerHTML = unescape(value);}
+        if (argname == "mapdata") {document.getElementById('mapData').innerHTML = unescape(value);}
+     }
+</script>
+
+<%= form_for(@itinerario) do |f| %>
+  <% if @itinerario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@itinerario.errors.count, "error") %> prohibited this itinerario from being saved:</h2>
+
+      <ul>
+      <% @itinerario.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </div>
+  <div class="field">
+    <%= f.label :lonlat_center %><br />
+    <%= f.text_field :lonlat_center %>
+  </div>
+  <div class="field">
+    <%= f.label :center_lat %><br />
+    <%= f.text_field :center_lat %>
+  </div>
+  <div class="field">
+    <%= f.label :center_lon %><br />
+    <%= f.text_field :center_lon %>
+  </div>
+  <div class="field">
+    <%= f.label :map_from_json %><br />
+    <%= f.text_area :map_from_json, :id => "mapData", :size => "120x5" %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  BlitzMap.setMap( 'myMap', true, 'mapData' );
+</script>
+    session: <%= debug(session) %><br />
+ params: <%= debug(params) %>
+  
