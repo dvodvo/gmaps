@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150129082713) do
+ActiveRecord::Schema.define(:version => 20150129083056) do
 
   create_table "addons", :force => true do |t|
     t.integer  "surface_id"
@@ -64,8 +64,10 @@ ActiveRecord::Schema.define(:version => 20150129082713) do
     t.string   "lng"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "addon_id"
   end
 
+  add_index "paths", ["addon_id"], :name => "index_paths_on_addon_id"
   add_index "paths", ["overlay_id"], :name => "index_paths_on_overlay_id"
 
   create_table "strutturas", :force => true do |t|
