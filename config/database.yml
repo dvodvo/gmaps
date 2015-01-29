@@ -6,6 +6,7 @@
 development:
   adapter: postgresql
   database: gmaps_development
+  host: localhost
   username: jerdvo
   
 test:
