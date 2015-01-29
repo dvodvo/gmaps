@@ -4,10 +4,7 @@ class CreateStrutturas < ActiveRecord::Migration
       t.decimal :latitude
       t.decimal :longitude
       t.string :nome
-      t.text :servizi
-      t.string :telefono
-      t.string :web
-      t.string :address
+      t.integer :master_struttura_id
 
       t.timestamps
     end

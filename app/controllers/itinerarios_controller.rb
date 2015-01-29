@@ -46,6 +46,19 @@ class ItinerariosController < ApplicationController
   # POST /itinerarios.json
   def create
     @itinerario = Itinerario.new(params[:itinerario])
+    json = 
+    c = Center.new({:lat => json["center"]["lat"], :lng => json["center"]["lng"]})
+    o = Overlay.new({:type => json["overlays"]["type"], :title => json["overlays"]["title"], :content => json["overlays"]["content"], :fillColor => json["overlays"]["fillColor"], :fillOpacity => json["overlays"]["fillOpacity"], :strokeColor => json["overlays"]["strokeColor"], :strokeOpacity => json["overlays"]["strokeOpacity"], :strokeWeight => json["overlays"]["strokeWeight"]})
+    
+    @itinerario.map_from_json = json
+    @itinerario.center = c
+    @itinerario.overlay = o
+    @itinerario.paths = []
+    json["paths"][0]["paths"].each do |path|
+      @itinerario.paths << Path.new({:lat => path["lat"], :lng => path["lng"]})
+    end
+    @itinerario.save!
+
 
     respond_to do |format|
       if @itinerario.save

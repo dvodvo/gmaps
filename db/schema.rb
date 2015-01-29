@@ -26,8 +26,6 @@ ActiveRecord::Schema.define(:version => 20140923065947) do
     t.integer  "zoom"
     t.string   "tilt"
     t.string   "map_type_id"
-    t.decimal  "center_lat"
-    t.decimal  "center_lon"
     t.text     "map_from_json"
     t.datetime "created_at",                                                                :null => false
     t.datetime "updated_at",                                                                :null => false
@@ -36,16 +34,6 @@ ActiveRecord::Schema.define(:version => 20140923065947) do
   end
 
   add_index "itinerarios", ["lonlat_center"], :name => "index_itinerarios_on_lonlat_center"
-
-  create_table "lonlats", :force => true do |t|
-    t.string   "lat"
-    t.string   "lon"
-    t.integer  "itinerario_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
-  add_index "lonlats", ["itinerario_id"], :name => "index_lonlats_on_itinerario_id"
 
   create_table "overlays", :force => true do |t|
     t.integer  "itinerario_id"
@@ -64,25 +52,22 @@ ActiveRecord::Schema.define(:version => 20140923065947) do
   add_index "overlays", ["itinerario_id"], :name => "index_overlays_on_itinerario_id"
 
   create_table "paths", :force => true do |t|
-    t.integer  "overlay_id"
+    t.integer  "itinerario_id"
     t.string   "lat"
     t.string   "lng"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
-  add_index "paths", ["overlay_id"], :name => "index_paths_on_overlay_id"
+  add_index "paths", ["itinerario_id"], :name => "index_paths_on_itinerario_id"
 
   create_table "strutturas", :force => true do |t|
     t.decimal  "latitude"
     t.decimal  "longitude"
     t.string   "nome"
-    t.text     "servizi"
-    t.string   "telefono"
-    t.string   "web"
-    t.string   "address"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "master_struttura_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
 end
