@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150129081803) do
+ActiveRecord::Schema.define(:version => 20150129082713) do
+
+  create_table "addons", :force => true do |t|
+    t.integer  "surface_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "addons", ["surface_id"], :name => "index_addons_on_surface_id"
 
   create_table "centers", :force => true do |t|
     t.string   "lat"
