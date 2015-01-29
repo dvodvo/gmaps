@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140923065947) do
+ActiveRecord::Schema.define(:version => 20150129081803) do
 
   create_table "centers", :force => true do |t|
     t.string   "lat"
@@ -19,23 +19,10 @@ ActiveRecord::Schema.define(:version => 20140923065947) do
     t.integer  "itinerario_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.integer  "surface_id"
   end
 
-  create_table "itinerarios", :force => true do |t|
-    t.string   "nome"
-    t.integer  "zoom"
-    t.string   "tilt"
-    t.string   "map_type_id"
-    t.decimal  "center_lat"
-    t.decimal  "center_lon"
-    t.text     "map_from_json"
-    t.datetime "created_at",                                                                :null => false
-    t.datetime "updated_at",                                                                :null => false
-    t.spatial  "lonlat_center", :limit => {:srid=>4326, :type=>"point", :geographic=>true}
-    t.integer  "zoom_level"
-  end
-
-  add_index "itinerarios", ["lonlat_center"], :name => "index_itinerarios_on_lonlat_center"
+  add_index "centers", ["surface_id"], :name => "index_centers_on_surface_id"
 
   create_table "lonlats", :force => true do |t|
     t.string   "lat"
@@ -81,6 +68,11 @@ ActiveRecord::Schema.define(:version => 20140923065947) do
     t.string   "telefono"
     t.string   "web"
     t.string   "address"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "surfaces", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
