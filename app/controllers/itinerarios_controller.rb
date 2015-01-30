@@ -18,7 +18,7 @@ class ItinerariosController < ApplicationController
   # GET /itinerarios/1.json
   def show
     @itinerario = Itinerario.find(params[:id])
-    @lonlats = Lonlat.where(['itinerario_id = ?', params[:id]]).all
+#    @lonlats = Lonlat.where(['itinerario_id = ?', params[:id]]).all
 
     respond_to do |format|
       format.html # show.html.erb
@@ -48,15 +48,15 @@ class ItinerariosController < ApplicationController
     @itinerario = Itinerario.new(params[:itinerario])
     json = JSON.parse(params[:itinerario][:map_from_json])
     c = Center.new({:lat => json["center"]["lat"], :lng => json["center"]["lng"]})
-    o = Overlay.new({:type => json["overlays"]["type"], :title => json["overlays"]["title"], :content => json["overlays"]["content"], :fillColor => json["overlays"]["fillColor"], :fillOpacity => json["overlays"]["fillOpacity"], :strokeColor => json["overlays"]["strokeColor"], :strokeOpacity => json["overlays"]["strokeOpacity"], :strokeWeight => json["overlays"]["strokeWeight"]})
+#    o = Overlay.new({:type => json["overlays"]["type"], :title => json["overlays"]["title"], :content => json["overlays"]["content"], :fillColor => json["overlays"]["fillColor"], :fillOpacity => json["overlays"]["fillOpacity"], :strokeColor => json["overlays"]["strokeColor"], :strokeOpacity => json["overlays"]["strokeOpacity"], :strokeWeight => json["overlays"]["strokeWeight"]})
     
 #    @itinerario.map_from_json = json
     @itinerario.center = c
-    @itinerario.overlay = o
-    @itinerario.paths = []
-    json["paths"][0]["paths"].each do |path|
-      @itinerario.paths << Path.new({:lat => path["lat"], :lng => path["lng"]})
-    end
+#    @itinerario.overlay = o
+#    @itinerario.paths = []
+#    json["paths"][0]["paths"].each do |path|
+#      @itinerario.paths << Path.new({:lat => path["lat"], :lng => path["lng"]})
+#    end
     @itinerario.save!
 
 
