@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(:version => 20140923065947) do
   end
 
   create_table "itinerarios", :force => true do |t|
-    t.string   "nome"
     t.integer  "zoom"
     t.string   "tilt"
     t.string   "map_type_id"
@@ -37,7 +36,7 @@ ActiveRecord::Schema.define(:version => 20140923065947) do
 
   create_table "overlays", :force => true do |t|
     t.integer  "itinerario_id"
-    t.string   "type"
+    t.string   "gmap_type"
     t.string   "title"
     t.text     "content"
     t.string   "fillColor"
@@ -62,12 +61,16 @@ ActiveRecord::Schema.define(:version => 20140923065947) do
   add_index "paths", ["itinerario_id"], :name => "index_paths_on_itinerario_id"
 
   create_table "strutturas", :force => true do |t|
-    t.decimal  "latitude"
-    t.decimal  "longitude"
+    t.decimal  "lat",                                                                             :precision => 15, :scale => 10
+    t.decimal  "lon",                                                                             :precision => 15, :scale => 10
     t.string   "nome"
+    t.text     "address"
     t.integer  "master_struttura_id"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",                                                                                                      :null => false
+    t.datetime "updated_at",                                                                                                      :null => false
+    t.spatial  "lonlat",              :limit => {:srid=>4326, :type=>"point", :geographic=>true}
   end
+
+  add_index "strutturas", ["lonlat"], :name => "index_strutturas_on_lonlat"
 
 end

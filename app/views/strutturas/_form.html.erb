@@ -12,18 +12,27 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </div>
+  <div class="field">
     <%= f.label :latitude %><br />
-    <%= f.text_field :latitude %>
+    <%= f.text_field :lat %>
   </div>
   <div class="field">
     <%= f.label :longitude %><br />
-    <%= f.text_field :longitude %>
+    <%= f.text_field :lon %>
   </div>
   <div class="field">
-    <%= f.label :nome %><br />
-    <%= f.text_field :nome %>
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :master_struttura_id %><br />
+    <%= f.text_field :master_struttura_id %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+

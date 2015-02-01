@@ -1,16 +1,12 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Nome:</b>
-  <%= @itinerario.nome %>
-</p>
-<div style='width: 800px;'>
-Zoom: <%= @itinerario.zoom_level %><br />
+<h3>Itinerary definition</h3>
 <div id="myMap" style="height:400px; width:90%;"></div>
+   <div id="panel"  style="height:40px; width:90%;">
+      <div id="color-palette"></div>
+    </div>
+<br /><br />
 
-<textarea id="mapData" name="itinerario[map_from_json]" style="width:90%; height:100px">
-<%= ActiveSupport::JSON.decode(@itinerario.map_from_json) %>
-</textarea>
+
+<br />
 <script type="text/javascript">
       // If there are any parameters at eh end of the URL, they will be in  location.search
       // looking something like  "?marker=3"
@@ -32,14 +28,24 @@ Zoom: <%= @itinerario.zoom_level %><br />
         if (argname == "mapdata") {document.getElementById('mapData').innerHTML = unescape(value);}
      }
 </script>
+
+<textarea id="mapData" name="itinerario[map_from_json]" style="width:90%; height:100px">
+{"zoom":<%=j @itinerario.zoom.to_s %>,"tilt":<%=j @itinerario.tilt.to_s %>,"mapTypeId":"<%=j @itinerario.map_type_id.to_s %>","center":{"lat":<%=j @itinerario.center.lat.to_s %>,"lng":<%=j @itinerario.center.lng.to_s %>},"overlays":[{"type":"<%=j @itinerario.overlay.try(:gmap_type).to_s %>","title":"<%=j @itinerario.overlay.try(:title).to_s %> ","content":"<%=j @itinerario.overlay.try(:content).to_s %>","fillColor":"<%=j @itinerario.overlay.try(:fillColor).to_s %>","fillOpacity":<%=j @itinerario.overlay.try(:fillOpacity).to_s %>,"strokeColor":"<%=j @itinerario.overlay.try(:strokeColor).to_s %>","strokeOpacity":<%=j @itinerario.overlay.try(:strokeOpacity).to_s %>,"strokeWeight":<%=j @itinerario.overlay.try(:strokeWeight).to_s %>,"paths":[[<% @itinerario.paths.each do |path| %>
+    {"lat":"<%= path.lat %>","lng":"<%= path.lng %>"}<%= "," unless path == @itinerario.paths.last %><% end %>]]}]}
+</textarea>
+
+
+
 <script type="text/javascript">
   BlitzMap.setMap( 'myMap', true, 'mapData' );
 </script>
-<br /><br />
-<%= ActiveSupport::JSON.decode(@itinerario.map_from_json) %>
-
-
-
-
-<%= link_to 'Edit', edit_itinerario_path(@itinerario) %> |
-<%= link_to 'Back', itinerarios_path %>
+<br />
+<%= @itinerario.map_from_json %><br />
+  Paths:<br />
+  <% @itinerario.paths.each do |path| %>
+    <%= path.itinerario_id %> <%= path.lat %> <%= path.lng %><br />
+  <% end %>
+ <br />
+ session: <%= debug(session) %><br />
+ params: <%= debug(params) %>
+  

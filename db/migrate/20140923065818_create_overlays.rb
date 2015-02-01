@@ -2,7 +2,7 @@ class CreateOverlays < ActiveRecord::Migration
   def change
     create_table :overlays do |t|
       t.references :itinerario
-      t.string :type
+      t.string :gmap_type
       t.string :title
       t.text :content
       t.string :fillColor

@@ -1,6 +1,16 @@
 <h1>Editing itinerario</h1>
 
-<%= render 'form' %>
+<%= form_for(@itinerario) do |f| %>
+  <div class="field">
+    <%= f.label :tilt %><br />
+    <%= f.text_field :tilt %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+
+<% end %>
 
 <%= link_to 'Show', @itinerario %> |
 <%= link_to 'Back', itinerarios_path %>

@@ -1,5 +1,5 @@
 class ItinerariosController < ApplicationController
-  layout "itinerario", :except => [:new]
+  layout "itinerario", :except => [:new, :show]
 #  layout "newItinerario", :only => [:new]
 
 
@@ -48,15 +48,18 @@ class ItinerariosController < ApplicationController
     @itinerario = Itinerario.new(params[:itinerario])
     json = JSON.parse(params[:itinerario][:map_from_json])
     c = Center.new({:lat => json["center"]["lat"], :lng => json["center"]["lng"]})
-#    o = Overlay.new({:type => json["overlays"]["type"], :title => json["overlays"]["title"], :content => json["overlays"]["content"], :fillColor => json["overlays"]["fillColor"], :fillOpacity => json["overlays"]["fillOpacity"], :strokeColor => json["overlays"]["strokeColor"], :strokeOpacity => json["overlays"]["strokeOpacity"], :strokeWeight => json["overlays"]["strokeWeight"]})
+    o = Overlay.new({:gmap_type => json["overlays"][0]["type"], :title => json["overlays"][0]["title"], :content => json["overlays"][0]["content"], :fillColor => json["overlays"][0]["fillColor"], :fillOpacity => json["overlays"][0]["fillOpacity"], :strokeColor => json["overlays"][0]["strokeColor"], :strokeOpacity => json["overlays"][0]["strokeOpacity"], :strokeWeight => json["overlays"][0]["strokeWeight"]})
     
-#    @itinerario.map_from_json = json
+    @itinerario.map_from_json = json
+    @itinerario.zoom = json["zoom"]
+    @itinerario.tilt = json["tilt"]
+    @itinerario.map_type_id = json["mapTypeId"]
     @itinerario.center = c
-#    @itinerario.overlay = o
-#    @itinerario.paths = []
-#    json["paths"][0]["paths"].each do |path|
-#      @itinerario.paths << Path.new({:lat => path["lat"], :lng => path["lng"]})
-#    end
+    @itinerario.overlay = o
+    @itinerario.paths = []
+    json["overlays"][0]["paths"][0].each do |path|
+      @itinerario.paths << Path.new({:lat => path["lat"], :lng => path["lng"]})
+    end
     @itinerario.save!
 
 
@@ -75,13 +78,9 @@ class ItinerariosController < ApplicationController
   # PUT /itinerarios/1.json
   def update
     @itinerario = Itinerario.find(params[:id])
-#    @map_data_json = ActiveSupport::JSON.decode(@itinerario.map_from_json)
-    @map_data = JSON.parse @itinerario.map_from_json
 
     respond_to do |format|
       if @itinerario.update_attributes(params[:itinerario])
-        @map_data = JSON.parse @itinerario.map_from_json
-#        @itinerario.update_attributes(@surface_data)
         format.html { redirect_to @itinerario, notice: 'Itinerario was successfully updated.' }
         format.json { head :no_content }
       else

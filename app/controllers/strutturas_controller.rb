@@ -4,9 +4,8 @@ class StrutturasController < ApplicationController
   def index
     @strutturas = Struttura.all
     @hash = Gmaps4rails.build_markers(@strutturas) do |struttura, marker|
-      marker.lat struttura.latitude
-      marker.lng struttura.longitude
-      marker.infowindow struttura.servizi
+      marker.lat struttura.lat
+      marker.lng struttura.lon
       marker.picture({
         "url" => "http://images.1-to-x.com/locationPointer.png",
         "width" =>  12,

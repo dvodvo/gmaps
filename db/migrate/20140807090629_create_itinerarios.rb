@@ -1,7 +1,6 @@
 class CreateItinerarios < ActiveRecord::Migration
   def change
     create_table :itinerarios do |t|
-      t.string  :nome
       t.integer :zoom
       t.string  :tilt
       t.string  :map_type_id
