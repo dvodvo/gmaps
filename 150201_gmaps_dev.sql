@@ -44,7 +44,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: centers; Type: TABLE; Schema: public; Owner: jerdvo; Tablespace: 
+-- Name: centers; Type: TABLE; Schema: public; Owner: gmaps_user; Tablespace: 
 --
 
 CREATE TABLE centers (
@@ -57,10 +57,10 @@ CREATE TABLE centers (
 );
 
 
-ALTER TABLE public.centers OWNER TO jerdvo;
+ALTER TABLE public.centers OWNER TO gmaps_user;
 
 --
--- Name: centers_id_seq; Type: SEQUENCE; Schema: public; Owner: jerdvo
+-- Name: centers_id_seq; Type: SEQUENCE; Schema: public; Owner: gmaps_user
 --
 
 CREATE SEQUENCE centers_id_seq
@@ -71,17 +71,17 @@ CREATE SEQUENCE centers_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.centers_id_seq OWNER TO jerdvo;
+ALTER TABLE public.centers_id_seq OWNER TO gmaps_user;
 
 --
--- Name: centers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: jerdvo
+-- Name: centers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gmaps_user
 --
 
 ALTER SEQUENCE centers_id_seq OWNED BY centers.id;
 
 
 --
--- Name: itinerarios; Type: TABLE; Schema: public; Owner: jerdvo; Tablespace: 
+-- Name: itinerarios; Type: TABLE; Schema: public; Owner: gmaps_user; Tablespace: 
 --
 
 CREATE TABLE itinerarios (
@@ -97,10 +97,10 @@ CREATE TABLE itinerarios (
 );
 
 
-ALTER TABLE public.itinerarios OWNER TO jerdvo;
+ALTER TABLE public.itinerarios OWNER TO gmaps_user;
 
 --
--- Name: itinerarios_id_seq; Type: SEQUENCE; Schema: public; Owner: jerdvo
+-- Name: itinerarios_id_seq; Type: SEQUENCE; Schema: public; Owner: gmaps_user
 --
 
 CREATE SEQUENCE itinerarios_id_seq
@@ -111,17 +111,17 @@ CREATE SEQUENCE itinerarios_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.itinerarios_id_seq OWNER TO jerdvo;
+ALTER TABLE public.itinerarios_id_seq OWNER TO gmaps_user;
 
 --
--- Name: itinerarios_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: jerdvo
+-- Name: itinerarios_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gmaps_user
 --
 
 ALTER SEQUENCE itinerarios_id_seq OWNED BY itinerarios.id;
 
 
 --
--- Name: overlays; Type: TABLE; Schema: public; Owner: jerdvo; Tablespace: 
+-- Name: overlays; Type: TABLE; Schema: public; Owner: gmaps_user; Tablespace: 
 --
 
 CREATE TABLE overlays (
@@ -140,10 +140,10 @@ CREATE TABLE overlays (
 );
 
 
-ALTER TABLE public.overlays OWNER TO jerdvo;
+ALTER TABLE public.overlays OWNER TO gmaps_user;
 
 --
--- Name: overlays_id_seq; Type: SEQUENCE; Schema: public; Owner: jerdvo
+-- Name: overlays_id_seq; Type: SEQUENCE; Schema: public; Owner: gmaps_user
 --
 
 CREATE SEQUENCE overlays_id_seq
@@ -154,17 +154,17 @@ CREATE SEQUENCE overlays_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.overlays_id_seq OWNER TO jerdvo;
+ALTER TABLE public.overlays_id_seq OWNER TO gmaps_user;
 
 --
--- Name: overlays_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: jerdvo
+-- Name: overlays_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gmaps_user
 --
 
 ALTER SEQUENCE overlays_id_seq OWNED BY overlays.id;
 
 
 --
--- Name: paths; Type: TABLE; Schema: public; Owner: jerdvo; Tablespace: 
+-- Name: paths; Type: TABLE; Schema: public; Owner: gmaps_user; Tablespace: 
 --
 
 CREATE TABLE paths (
@@ -177,10 +177,10 @@ CREATE TABLE paths (
 );
 
 
-ALTER TABLE public.paths OWNER TO jerdvo;
+ALTER TABLE public.paths OWNER TO gmaps_user;
 
 --
--- Name: paths_id_seq; Type: SEQUENCE; Schema: public; Owner: jerdvo
+-- Name: paths_id_seq; Type: SEQUENCE; Schema: public; Owner: gmaps_user
 --
 
 CREATE SEQUENCE paths_id_seq
@@ -191,17 +191,17 @@ CREATE SEQUENCE paths_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.paths_id_seq OWNER TO jerdvo;
+ALTER TABLE public.paths_id_seq OWNER TO gmaps_user;
 
 --
--- Name: paths_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: jerdvo
+-- Name: paths_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gmaps_user
 --
 
 ALTER SEQUENCE paths_id_seq OWNED BY paths.id;
 
 
 --
--- Name: schema_migrations; Type: TABLE; Schema: public; Owner: jerdvo; Tablespace: 
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: gmaps_user; Tablespace: 
 --
 
 CREATE TABLE schema_migrations (
@@ -209,10 +209,10 @@ CREATE TABLE schema_migrations (
 );
 
 
-ALTER TABLE public.schema_migrations OWNER TO jerdvo;
+ALTER TABLE public.schema_migrations OWNER TO gmaps_user;
 
 --
--- Name: strutturas; Type: TABLE; Schema: public; Owner: jerdvo; Tablespace: 
+-- Name: strutturas; Type: TABLE; Schema: public; Owner: gmaps_user; Tablespace: 
 --
 
 CREATE TABLE strutturas (
@@ -228,10 +228,10 @@ CREATE TABLE strutturas (
 );
 
 
-ALTER TABLE public.strutturas OWNER TO jerdvo;
+ALTER TABLE public.strutturas OWNER TO gmaps_user;
 
 --
--- Name: strutturas_id_seq; Type: SEQUENCE; Schema: public; Owner: jerdvo
+-- Name: strutturas_id_seq; Type: SEQUENCE; Schema: public; Owner: gmaps_user
 --
 
 CREATE SEQUENCE strutturas_id_seq
@@ -242,52 +242,52 @@ CREATE SEQUENCE strutturas_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.strutturas_id_seq OWNER TO jerdvo;
+ALTER TABLE public.strutturas_id_seq OWNER TO gmaps_user;
 
 --
--- Name: strutturas_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: jerdvo
+-- Name: strutturas_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gmaps_user
 --
 
 ALTER SEQUENCE strutturas_id_seq OWNED BY strutturas.id;
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: jerdvo
+-- Name: id; Type: DEFAULT; Schema: public; Owner: gmaps_user
 --
 
 ALTER TABLE ONLY centers ALTER COLUMN id SET DEFAULT nextval('centers_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: jerdvo
+-- Name: id; Type: DEFAULT; Schema: public; Owner: gmaps_user
 --
 
 ALTER TABLE ONLY itinerarios ALTER COLUMN id SET DEFAULT nextval('itinerarios_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: jerdvo
+-- Name: id; Type: DEFAULT; Schema: public; Owner: gmaps_user
 --
 
 ALTER TABLE ONLY overlays ALTER COLUMN id SET DEFAULT nextval('overlays_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: jerdvo
+-- Name: id; Type: DEFAULT; Schema: public; Owner: gmaps_user
 --
 
 ALTER TABLE ONLY paths ALTER COLUMN id SET DEFAULT nextval('paths_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: jerdvo
+-- Name: id; Type: DEFAULT; Schema: public; Owner: gmaps_user
 --
 
 ALTER TABLE ONLY strutturas ALTER COLUMN id SET DEFAULT nextval('strutturas_id_seq'::regclass);
 
 
 --
--- Data for Name: centers; Type: TABLE DATA; Schema: public; Owner: jerdvo
+-- Data for Name: centers; Type: TABLE DATA; Schema: public; Owner: gmaps_user
 --
 
 COPY centers (id, lat, lng, itinerario_id, created_at, updated_at) FROM stdin;
@@ -297,14 +297,14 @@ COPY centers (id, lat, lng, itinerario_id, created_at, updated_at) FROM stdin;
 
 
 --
--- Name: centers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: jerdvo
+-- Name: centers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: gmaps_user
 --
 
 SELECT pg_catalog.setval('centers_id_seq', 2, true);
 
 
 --
--- Data for Name: itinerarios; Type: TABLE DATA; Schema: public; Owner: jerdvo
+-- Data for Name: itinerarios; Type: TABLE DATA; Schema: public; Owner: gmaps_user
 --
 
 COPY itinerarios (id, zoom, tilt, map_type_id, map_from_json, created_at, updated_at, lonlat_center, zoom_level) FROM stdin;
@@ -314,14 +314,14 @@ COPY itinerarios (id, zoom, tilt, map_type_id, map_from_json, created_at, update
 
 
 --
--- Name: itinerarios_id_seq; Type: SEQUENCE SET; Schema: public; Owner: jerdvo
+-- Name: itinerarios_id_seq; Type: SEQUENCE SET; Schema: public; Owner: gmaps_user
 --
 
 SELECT pg_catalog.setval('itinerarios_id_seq', 2, true);
 
 
 --
--- Data for Name: overlays; Type: TABLE DATA; Schema: public; Owner: jerdvo
+-- Data for Name: overlays; Type: TABLE DATA; Schema: public; Owner: gmaps_user
 --
 
 COPY overlays (id, itinerario_id, gmap_type, title, content, "fillColor", "fillOpacity", "strokeColor", "strokeOpacity", "strokeWeight", created_at, updated_at) FROM stdin;
@@ -331,14 +331,14 @@ COPY overlays (id, itinerario_id, gmap_type, title, content, "fillColor", "fillO
 
 
 --
--- Name: overlays_id_seq; Type: SEQUENCE SET; Schema: public; Owner: jerdvo
+-- Name: overlays_id_seq; Type: SEQUENCE SET; Schema: public; Owner: gmaps_user
 --
 
 SELECT pg_catalog.setval('overlays_id_seq', 2, true);
 
 
 --
--- Data for Name: paths; Type: TABLE DATA; Schema: public; Owner: jerdvo
+-- Data for Name: paths; Type: TABLE DATA; Schema: public; Owner: gmaps_user
 --
 
 COPY paths (id, itinerario_id, lat, lng, created_at, updated_at) FROM stdin;
@@ -356,14 +356,14 @@ COPY paths (id, itinerario_id, lat, lng, created_at, updated_at) FROM stdin;
 
 
 --
--- Name: paths_id_seq; Type: SEQUENCE SET; Schema: public; Owner: jerdvo
+-- Name: paths_id_seq; Type: SEQUENCE SET; Schema: public; Owner: gmaps_user
 --
 
 SELECT pg_catalog.setval('paths_id_seq', 10, true);
 
 
 --
--- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: jerdvo
+-- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: gmaps_user
 --
 
 COPY schema_migrations (version) FROM stdin;
@@ -378,7 +378,7 @@ COPY schema_migrations (version) FROM stdin;
 
 
 --
--- Data for Name: spatial_ref_sys; Type: TABLE DATA; Schema: public; Owner: jerdvo
+-- Data for Name: spatial_ref_sys; Type: TABLE DATA; Schema: public; Owner: gmaps_user
 --
 
 COPY spatial_ref_sys (srid, auth_name, auth_srid, srtext, proj4text) FROM stdin;
@@ -386,7 +386,7 @@ COPY spatial_ref_sys (srid, auth_name, auth_srid, srtext, proj4text) FROM stdin;
 
 
 --
--- Data for Name: strutturas; Type: TABLE DATA; Schema: public; Owner: jerdvo
+-- Data for Name: strutturas; Type: TABLE DATA; Schema: public; Owner: gmaps_user
 --
 
 COPY strutturas (id, lat, lon, nome, address, master_struttura_id, created_at, updated_at, lonlat) FROM stdin;
@@ -398,14 +398,14 @@ COPY strutturas (id, lat, lon, nome, address, master_struttura_id, created_at, u
 
 
 --
--- Name: strutturas_id_seq; Type: SEQUENCE SET; Schema: public; Owner: jerdvo
+-- Name: strutturas_id_seq; Type: SEQUENCE SET; Schema: public; Owner: gmaps_user
 --
 
 SELECT pg_catalog.setval('strutturas_id_seq', 4, true);
 
 
 --
--- Name: centers_pkey; Type: CONSTRAINT; Schema: public; Owner: jerdvo; Tablespace: 
+-- Name: centers_pkey; Type: CONSTRAINT; Schema: public; Owner: gmaps_user; Tablespace: 
 --
 
 ALTER TABLE ONLY centers
@@ -413,7 +413,7 @@ ALTER TABLE ONLY centers
 
 
 --
--- Name: itinerarios_pkey; Type: CONSTRAINT; Schema: public; Owner: jerdvo; Tablespace: 
+-- Name: itinerarios_pkey; Type: CONSTRAINT; Schema: public; Owner: gmaps_user; Tablespace: 
 --
 
 ALTER TABLE ONLY itinerarios
@@ -421,7 +421,7 @@ ALTER TABLE ONLY itinerarios
 
 
 --
--- Name: overlays_pkey; Type: CONSTRAINT; Schema: public; Owner: jerdvo; Tablespace: 
+-- Name: overlays_pkey; Type: CONSTRAINT; Schema: public; Owner: gmaps_user; Tablespace: 
 --
 
 ALTER TABLE ONLY overlays
@@ -429,7 +429,7 @@ ALTER TABLE ONLY overlays
 
 
 --
--- Name: paths_pkey; Type: CONSTRAINT; Schema: public; Owner: jerdvo; Tablespace: 
+-- Name: paths_pkey; Type: CONSTRAINT; Schema: public; Owner: gmaps_user; Tablespace: 
 --
 
 ALTER TABLE ONLY paths
@@ -437,7 +437,7 @@ ALTER TABLE ONLY paths
 
 
 --
--- Name: strutturas_pkey; Type: CONSTRAINT; Schema: public; Owner: jerdvo; Tablespace: 
+-- Name: strutturas_pkey; Type: CONSTRAINT; Schema: public; Owner: gmaps_user; Tablespace: 
 --
 
 ALTER TABLE ONLY strutturas
@@ -445,47 +445,47 @@ ALTER TABLE ONLY strutturas
 
 
 --
--- Name: index_itinerarios_on_lonlat_center; Type: INDEX; Schema: public; Owner: jerdvo; Tablespace: 
+-- Name: index_itinerarios_on_lonlat_center; Type: INDEX; Schema: public; Owner: gmaps_user; Tablespace: 
 --
 
 CREATE INDEX index_itinerarios_on_lonlat_center ON itinerarios USING btree (lonlat_center);
 
 
 --
--- Name: index_overlays_on_itinerario_id; Type: INDEX; Schema: public; Owner: jerdvo; Tablespace: 
+-- Name: index_overlays_on_itinerario_id; Type: INDEX; Schema: public; Owner: gmaps_user; Tablespace: 
 --
 
 CREATE INDEX index_overlays_on_itinerario_id ON overlays USING btree (itinerario_id);
 
 
 --
--- Name: index_paths_on_itinerario_id; Type: INDEX; Schema: public; Owner: jerdvo; Tablespace: 
+-- Name: index_paths_on_itinerario_id; Type: INDEX; Schema: public; Owner: gmaps_user; Tablespace: 
 --
 
 CREATE INDEX index_paths_on_itinerario_id ON paths USING btree (itinerario_id);
 
 
 --
--- Name: index_strutturas_on_lonlat; Type: INDEX; Schema: public; Owner: jerdvo; Tablespace: 
+-- Name: index_strutturas_on_lonlat; Type: INDEX; Schema: public; Owner: gmaps_user; Tablespace: 
 --
 
 CREATE INDEX index_strutturas_on_lonlat ON strutturas USING btree (lonlat);
 
 
 --
--- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: jerdvo; Tablespace: 
+-- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: gmaps_user; Tablespace: 
 --
 
 CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (version);
 
 
 --
--- Name: public; Type: ACL; Schema: -; Owner: jerdvo
+-- Name: public; Type: ACL; Schema: -; Owner: gmaps_user
 --
 
 REVOKE ALL ON SCHEMA public FROM PUBLIC;
-REVOKE ALL ON SCHEMA public FROM jerdvo;
-GRANT ALL ON SCHEMA public TO jerdvo;
+REVOKE ALL ON SCHEMA public FROM gmaps_user;
+GRANT ALL ON SCHEMA public TO gmaps_user;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
