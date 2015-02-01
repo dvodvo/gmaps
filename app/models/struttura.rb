@@ -15,5 +15,4 @@ class Struttura < ActiveRecord::Base
   end
 
 
-
 end
