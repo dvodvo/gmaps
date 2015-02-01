@@ -6,14 +6,14 @@
 development:
   adapter: postgresql
   database: gmaps_development
-  username: jerdvo
+  username: gmaps_user
   
 test:
   adapter: postgresql
   database: gmaps_test
-  username: jerdvo
+  username: gmaps_user
 
 production:
   adapter: postgresql
   database: gmaps_production
-  username: jerdvo
+  username: gmaps_user
