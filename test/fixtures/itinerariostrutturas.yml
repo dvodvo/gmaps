@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  itinerario_id: 1
+  struttura_id: 1
+  creator_id: 1
+
+two:
+  itinerario_id: 1
+  struttura_id: 1
+  creator_id: 1

@@ -1,4 +1,7 @@
 Gmaps::Application.routes.draw do
+  resources :itinerariostrutturas
+
+
   resources :paths
 
 

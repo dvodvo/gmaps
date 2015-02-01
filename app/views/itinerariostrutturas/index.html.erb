@@ -1,0 +1,27 @@
+<h1>Listing itinerariostrutturas</h1>
+
+<table>
+  <tr>
+    <th>Itinerario</th>
+    <th>Struttura</th>
+    <th>Creator</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @itinerariostrutturas.each do |itinerariostruttura| %>
+  <tr>
+    <td><%= itinerariostruttura.itinerario_id %></td>
+    <td><%= itinerariostruttura.struttura_id %></td>
+    <td><%= itinerariostruttura.creator_id %></td>
+    <td><%= link_to 'Show', itinerariostruttura %></td>
+    <td><%= link_to 'Edit', edit_itinerariostruttura_path(itinerariostruttura) %></td>
+    <td><%= link_to 'Destroy', itinerariostruttura, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Itinerariostruttura', new_itinerariostruttura_path %>

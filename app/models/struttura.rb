@@ -1,4 +1,8 @@
 class Struttura < ActiveRecord::Base
+  has_many: :itinerariostrutturas, :dependent => :destroy
+  has_many: :itinerarios, through: :itinerariostrutturas
+#  has_many: :creators, through: :itinerariostrutturas
+
   attr_accessible :address, :lat, :lon, :nome, :master_struttura_id
   
   attr_writer :lonlat

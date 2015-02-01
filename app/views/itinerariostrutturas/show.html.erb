@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Itinerario:</b>
+  <%= @itinerariostruttura.itinerario_id %>
+</p>
+
+<p>
+  <b>Struttura:</b>
+  <%= @itinerariostruttura.struttura_id %>
+</p>
+
+<p>
+  <b>Creator:</b>
+  <%= @itinerariostruttura.creator_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_itinerariostruttura_path(@itinerariostruttura) %> |
+<%= link_to 'Back', itinerariostrutturas_path %>

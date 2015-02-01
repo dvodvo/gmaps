@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140923065947) do
+ActiveRecord::Schema.define(:version => 20150201120853) do
 
   create_table "centers", :force => true do |t|
     t.string   "lat"
@@ -33,6 +33,14 @@ ActiveRecord::Schema.define(:version => 20140923065947) do
   end
 
   add_index "itinerarios", ["lonlat_center"], :name => "index_itinerarios_on_lonlat_center"
+
+  create_table "itinerariostrutturas", :force => true do |t|
+    t.integer  "itinerario_id"
+    t.integer  "struttura_id"
+    t.integer  "creator_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "overlays", :force => true do |t|
     t.integer  "itinerario_id"
